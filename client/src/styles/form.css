@@ -1,0 +1,23 @@
+/* form.css
+.form-container {
+  margin-top: 50px;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} */
+/* src/styles/form.css */
+.body{
+  background-color: white !important;
+}
+.container{
+  width: 100% !important;
+}
+.form-container {
+  /* width: 100% ; */
+  margin-top: 60px;
+  padding: 30px;
+  border-radius: 12px;
+  background-color: #ffffff !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  color: black;
+}

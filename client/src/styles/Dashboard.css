@@ -1,0 +1,1055 @@
+/* TEMPORARY STARTS */
+
+.welcome-box {
+  /* background-color: rgba(0, 123, 255, 0.15); light blue */
+  background-color: transparent;
+  width: fit-content;
+}
+
+.progress-box {
+  /* background-color: rgba(255, 87, 34, 0.15); */
+  background-color: #1b263b;
+  border-radius: 12px;
+  position: relative;
+  gap: 2rem;
+  justify-content: space-between;
+  min-height: 80px;
+  padding: 1.5rem 3rem;  /* Add horizontal padding to give line and markers room */
+}
+
+/* TEMPORARY ENDS */
+
+/* Body */
+body {
+  background-color: #0f172a;  /* deep navy/blue-gray like the reference UI */
+  /* color: white; optional: for better default contrast */
+}
+
+.dashboard-wrapper {
+  background-color: #0f172a;
+  min-height: 100vh;
+  color: white;
+  padding: 2rem;
+}
+/* Body Ends */
+
+/* NAVBAR */
+.dashboard-navbar {
+  background-color: #1e293b; /* dark bluish */
+  color: white;
+  position: sticky; /* keeps it on top while scrolling */
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #334155;
+ 
+}
+
+.app-name {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #38bdf8; /* sky blue */
+}
+
+.logout-btn {
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+/* NAVBAR ENDS */
+/* Animation */
+
+.welcome-stars {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.welcome-stars::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: url("https://raw.githubusercontent.com/PavelLaptev/animated-css-background/master/src/images/stars.svg") repeat; */
+  background: url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
+  opacity: 0.7;
+  animation: moveStars 60s linear infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes moveStars {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -1000px 500px;
+  }
+}
+
+
+/* Animation Ends */
+
+.main-dashboard {
+  background: linear-gradient(145deg, #0d1b2a, #1b263b);
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 1100px;
+  margin: 0 auto; /* Center horizontally */
+  margin-top: 10px;
+}
+
+.header-section {
+  gap: 2rem;
+  max-width: 2100px;
+  height: 300px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.welcome-box,
+.progress-box {
+  min-width: 250px;
+}
+
+.welcome-text h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.welcome-text p {
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+.progress-indicators {
+   gap: 2rem;                                              
+}                                                 
+
+.xp-circle, .streak-circle {
+  /* background-color: #0a84ff; */
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  /* border-radius: 50%;
+  padding: 1rem 1.5rem; */
+  border-radius: 20px; /* fully rounded pill shape */
+  padding: 0.6rem 1.2rem;
+  /* display: inline-block; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+  width: 100px;
+  text-align: center;
+
+}
+
+.marker {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  z-index: 2;
+
+  /* background-color: #0a84ff;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 48px;      was 36px
+  height: 48px;     was 36px
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem; for a clearer A/B
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  margin-bottom: 0.3rem; */
+
+  /* background-color: #0a84ff;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto; */
+}
+
+.marker-a {
+  /* background-color: #0a84ff; */
+  /* background-color: yellow; */
+  background-color: #fcd34d; /* amber/yellow for XP */
+  color: #1e1e1e;            /* dark text for emoji contrast */
+}
+
+.marker-b {
+  /* background-color: #ff6b6b; */
+  /* background-color: white; */
+  background-color: #60a5fa; /* light blue for streak */
+  color: #111827;            /* almost-black */
+}
+
+.connecting-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.progress-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.xp-indicator,
+.streak-indicator {
+  /* background-color: rgba(255, 255, 255, 0.05); */
+  background-color: transparent;
+  border-radius: 16px;
+  padding: 1rem;
+  width: 210px; /* Make it wider */
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+.xp-indicator:hover,
+.streak-indicator:hover {
+  background-color: rgba(255, 255, 255, 0.1); 
+}
+
+
+/* Ensure indicators appear above the line */
+.z-1 {
+  z-index: 1;
+  position: relative;
+}
+
+.label {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.quote {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #aaa;
+}
+
+/* Badges */
+.your-badges{
+  margin-top: 40px;
+  /* background-color: #1e293b; */
+  border-radius: 16px !important; 
+}
+
+.card{
+  background-color: #1e293b;
+  border-radius: 20px;
+  max-width: 100%;
+  border: none;
+  padding: 0;
+} 
+
+.badge-section {
+  background-color: #1e293b !important;
+  color: white;
+  border-radius: 16px !important; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.custom-badge {
+  /* background: linear-gradient(135deg, #38bdf8, #0ea5e9); sky blue gradient */
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+
+  white-space: nowrap;
+  flex-shrink: 0; 
+}
+
+/* 19/07/25 */
+.badge-scroll-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.badge-scroll-container {
+  /* display: flex; */
+  display: inline-flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 10px 0;
+  scrollbar-width: thin;
+  scrollbar-color: #38bdf8 transparent;
+  max-width: 100%;
+}
+
+/* Optional: Webkit scrollbar styling (for Chrome/Edge) */
+.badge-scroll-container::-webkit-scrollbar {
+  height: 6px;
+}
+.badge-scroll-container::-webkit-scrollbar-thumb {
+  background-color: #38bdf8;
+  border-radius: 10px;
+}
+.badge-scroll-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+/*19/07/25 Ends  */
+
+.locked-badge{
+  background-color: #e5e7eb !important; /* light gray */
+  color: #6b7280 !important; /* medium gray text */
+  filter: grayscale(100%);
+  opacity: 0.8;
+}
+.custom-badge:hover {
+  transform: scale(1.05);
+  cursor: default;
+}
+/* .card-body{
+  color: white;
+} */
+/* Badges End */
+
+/* HABIT SECTION */
+.habit-form-wrapper {
+  max-width: 600px; /*50-60% width
+  /* margin: 0 auto; */
+  justify-content: flex-start; /* 👈 Left align all children */
+  margin-top: 12px;
+}
+
+.habit-input {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+}
+
+.add-btn {
+  white-space: nowrap;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: rgb(247, 247, 153);
+}
+
+.add-habit-section {
+  background-color: #1e293b;
+  padding: 1.5rem;
+  border-radius: 12px;
+  max-width: 100%;
+  margin: auto;
+  margin-bottom: 2rem;
+  /* margin-top: 12px !important; */
+  /* background-color: #1e293b;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2rem;  */
+}
+
+
+.habit-input {
+  /* min-width: 250px;
+  flex-grow: 1;
+  border-radius: 8px; */
+  flex-grow: 1;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+ 
+}
+
+.add-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background-color: rgb(247, 247, 153);
+  /* white-space: nowrap;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 8px; */
+}
+
+.habit-cards {
+  background-color: #0f172a;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.habit-card {
+  /* border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease; */
+
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px;           /* ✅ Pill shape */
+  transition: transform 0.2s ease;
+  background-color: #1e293b;
+  color: white;
+  padding: 1rem;
+  min-height: 70px;              /* Maintain pill look */
+}
+
+.habit-card.completed {
+  /* background-color: #198754 !important; */
+  /* background-color: #0ea5e9 !important; */
+  /* background-color: #f7e087; */
+  /* background: linear-gradient(135deg, #facc15, #fcd34d, #fde68a); vibrant gold shades */
+  /* background: linear-gradient(135deg, #a955f783, #d846ef30); */
+  /* background: linear-gradient(135deg, #6555f7b6, #5746ef30); */
+  background: linear-gradient(135deg, #5588f7b6, #4687ef30);
+
+  /* box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3); subtle gold glow */
+  box-shadow: 0 4px 15px rgba(255, 132, 0, 0.3); /* subtle gold glow */
+  color: white;
+  
+}     
+
+.habit-name {
+  font-weight: 600;
+  transition: opacity 0.3s ease;
+}
+
+.habit-card .habit-checkbox {
+  width: 20px;
+  height: 20px;
+}
+
+.habit-actions {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  /* margin-top: 10px; */
+}
+
+.habit-card:hover .habit-actions {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.habit-card:hover .habit-name {
+  /* opacity: 0.6; */
+  opacity: 0.1;
+}
+
+.habit-card:hover {
+  transform: translateY(-4px);
+}
+
+.add-habit-section .form-select {
+  min-width: 150px;
+  border-radius: 6px;
+  padding: 0.3rem 0.5rem;
+}
+
+/* Minimal icon button */
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.2s ease;
+}
+
+.icon-btn:hover {
+  transform: scale(1.2);
+}
+/* .add-habit-section {
+  background-color: #1e293b;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  margin-bottom: 2rem;
+}
+
+.habit-input {
+  flex-grow: 1;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+}
+
+.add-btn {
+  white-space: nowrap;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 8px;
+} */
+
+/* HABIT SECTION ENDS */
+
+/* Calender */
+/* Highlight completed days in calendar */
+.modal-content {
+  background-color: #0f172a;
+  color: white;
+  border-radius: 12px;
+}
+
+.completed-day {
+  background: #22c55e !important;   /* Tailwind green-500 */
+  color: white !important;
+  border-radius: 50% !important;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+
+.react-calendar {
+  border: none;
+  background-color: #1e293b;
+  color: white;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.react-calendar__tile--now {
+  background: #3b82f6 !important; /* Blue for today */
+  color: white !important;
+}
+
+.react-calendar__tile:enabled:hover {
+  background-color: #475569;
+  color: white;
+}
+
+.react-calendar__navigation button {
+  color: white;
+  font-weight: bold;
+  background: none;
+  border: none;
+}
+
+/* Calender Ends */
+
+/* RESPONSIVENESS */
+
+/* Optional: center align text inside the boxes for small screens */
+@media (max-width: 768px) {
+  .header-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .dropdown-menu {
+    background-color: var(--bs-dark); /* or light if needed */
+    border: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    z-index: 10;
+  }
+
+  .dropdown-item {
+    color: white;
+    padding: 0.5rem 1rem;
+  }
+
+  .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+@media (max-width: 480px) {
+  .progress-box {
+    flex-direction: row; /* Ensure it's horizontal */
+    justify-content: space-between;
+    width: 100%;
+    /* padding: 1rem; */
+    padding: 1.5rem 1rem !important;
+    gap: 1rem;
+    /* flex-wrap: wrap; Optional: helps wrap if too tight */
+    /* flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 1.5rem;
+    padding: 1.5rem 1rem !important; */
+  }
+
+  .xp-indicator,
+  .streak-indicator {
+    /* width: 100%;
+    max-width: 300px; */
+     flex: 1 1 45%; /* Make them fit side by side */
+    min-width: 120px;
+    max-width: 150px;
+    align-items: center;
+    height: 150px;
+  }
+
+  .xp-circle,
+  .streak-circle {
+    font-size: 1.25rem;
+    padding: 0.75rem 1.25rem;
+  }
+
+  .marker {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 375px) {
+  /* Global Reset for Small Screens */
+  .container,
+  .container-fluid,
+  .dashboard-wrapper,
+  .dashboard,
+  .welcome-box,
+  .progress-box,
+  .habit-section,
+  .badges-section {
+    width: 96% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+
+  .progress-box {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px 5px;
+    min-height: fit-content;
+    min-width: fit-content;
+  }
+
+  .xp-indicator,
+  .streak-indicator {
+    min-width: 130px;
+    padding: 10px 8px;
+    font-size: 0.95rem;
+    margin: 0 5px;
+  }
+
+  .xp-circle,
+  .streak-circle {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 12px;
+  }
+
+  .marker {
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .label {
+    font-size: 0.75rem;
+    text-align: center;
+  }
+
+  /* Make sure image/avatar above XP/Streak is centered */
+  .xp-indicator img,
+  .streak-indicator img {
+    width: 30px;
+    height: 30px;
+    margin: 0 auto 5px auto;
+    display: block;
+  }
+}
+
+@media (max-width: 320px) {
+
+    /* Global Reset for Small Screens */
+  .container,
+  .container-fluid,
+  .dashboard-wrapper,
+  .dashboard,
+  .welcome-box,
+  .progress-box,
+  .habit-section,
+  .badges-section {
+    width: 96% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+
+  /* Welcome Text Adjustments */
+  .welcome-heading {
+    font-size: 0.9rem;
+    white-space: nowrap;
+    margin-right: 100px !important;
+    margin-left: 60px !important;
+  }
+
+  .welcome-box p {
+    font-size: 0.9rem;
+    margin-right: 20px !important;
+  }
+
+    /* Progress Box Layout */
+  .progress-box {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  /* gap: -1rem; */
+  padding: 0%;
+  min-height: fit-content;
+  min-width: 200px;
+
+} 
+
+/* Remove fixed width/height causing issues on small screens */
+.xp-indicator,
+.streak-indicator {
+  flex: 0 0 auto;
+  min-width: 140px;
+  /* margin: 0; */
+  margin-left: 25px;
+  margin-right: 25px;
+  transform: none;
+}
+
+/* Hide horizontal scrollbar if you want (optional) */
+.progress-box::-webkit-scrollbar {
+  display: none;
+}
+
+.xp-circle,
+  .streak-circle {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+    border-radius: 12px;
+  }
+
+  .marker {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .label {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 320px) {
+  body.light .container,
+  body.light .container-fluid,
+  body.light .dashboard-wrapper,
+  body.light .dashboard,
+  body.light .welcome-box,
+  body.light .progress-box,
+  body.light .habit-section,
+  body.light .badges-section {
+    width: 96% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+
+  body.light .welcome-heading {
+    font-size: 0.9rem;
+    white-space: nowrap;
+    margin-right: 100px !important;
+    margin-left: 60px !important;
+  }
+
+  body.light .welcome-box p {
+    font-size: 0.9rem;
+    margin-right: 20px !important;
+  }
+
+  body.light .progress-box {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding: 0%;
+    min-height: fit-content;
+    min-width: 200px;
+  }
+
+  body.light .xp-indicator,
+  body.light .streak-indicator {
+    flex: 0 0 auto;
+    min-width: 140px;
+    margin-left: 25px;
+    margin-right: 25px;
+    transform: none;
+  }
+
+  body.light .progress-box::-webkit-scrollbar {
+    display: none;
+  }
+
+  body.light .xp-circle,
+  body.light .streak-circle {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+    border-radius: 24px;
+  }
+
+  body.light .marker {
+    font-size: 3rem;
+    margin-bottom: 0.25rem;
+  }
+
+  body.light .label {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+}
+
+/* Responsive Ends */
+/* ---------- THEME TOGGLE START ---------- */
+
+/* Light Theme - Body */
+body.light-theme {
+  background-color: #f9fafb !important;
+  color: #1e293b !important;
+}
+
+/* Dark Theme */
+body.dark-theme {
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+}
+
+/* Wrapper Container */
+body.light-theme .dashboard-wrapper {
+  background-color: #e4f3f5 !important;
+  color: #000000;
+}
+
+/* ---------- NAVBAR ---------- */
+body.light-theme .dashboard-navbar {
+  /* background-color: #ffffff; */
+  background-color: rgb(174, 225, 233);
+  color: #1e293b;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+body.light-theme .header-section{
+  /* background-color: white; */
+  color: black;
+}
+body.light-theme .welcome-stars::before{
+  background-color: rgb(145, 234, 248) !important;
+  /* color: black; */
+}
+body.light-theme .app-name {
+  color: #1d4ed8; /* Deep blue */
+  font-weight: bold;
+}
+body.light-theme .quote{
+  color: black !important;
+}
+
+body.light-theme .logout-btn,
+body.light-theme .theme-toggle-btn {
+  border-color: #1d4ed8;
+  color: #1d4ed8;
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light-theme .logout-btn:hover,
+body.light-theme .theme-toggle-btn:hover {
+  background-color: #eff6ff;
+  color: #1e40af;
+}
+
+/* ---------- WELCOME SECTION ---------- */
+body.light-theme .welcome-box {
+  /* background-color: #ffffff; */
+  background-color: transparent;
+  color: #111827;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); */
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* ---------- XP & STREAK CARDS ---------- */
+body.light-theme .xp-card,
+body.light-theme .streak-card {
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  border-radius: 10px;
+  padding: 16px;
+  color: #1e293b;
+}
+
+body.light-theme .xp-card .icon,
+body.light-theme .streak-card .icon {
+  font-size: 1.8rem;
+  color: #2563eb; /* Blue */
+}
+
+body.light-theme .xp-value,
+body.light-theme .streak-value {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #f97316; /* Orange */
+}
+
+
+
+/* Light Theme - XP & Streak Section */
+body.light-theme .progress-box {
+  /* background-color: #ffffff !important; */
+  background-color: rgb(174, 225, 233);
+  color: #000000 !important;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Light Theme - XP & Streak text (ensure circles and labels stay readable) */
+body.light-theme .xp-circle,
+body.light-theme .streak-circle,
+body.light-theme .label {
+  color: #000000 !important;
+}
+
+/* Optional: Circles background styling for light theme */
+body.light-theme .xp-circle,
+body.light-theme .streak-circle {
+  background-color: #f3f4f6; /* light gray background */
+  /* border: 2px solid #d1d5db; */
+}
+
+/* Optional: Markers styling if needed */
+body.light-theme .marker {
+  font-size: 24px;
+}
+
+body.light-theme .xp-indicator:hover,
+body.light-theme .streak-indicator:hover {
+  background-color: rgba(0, 0, 0, 0.074); /* light gray hover */
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+/* body.light-theme .xp-indicator:hover,
+.streak-indicator:hover {
+  background-color: rgba(255, 255, 255, 0.659) !important;
+} */
+/* ---------- HABIT CARDS ---------- */
+body.light-theme .habit-cards {
+  /* background-color: #ffffff !important; */
+  background-color: transparent;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  color: #1e293b !important;
+}
+bady.light-theme .text{
+  color: black !important;
+}
+body.light-theme .emoji{
+  color: black;
+}
+
+body.light-theme .habit-card.completed {
+  /* background: linear-gradient(135deg, #a7f3d0, #6ee7b7); */
+  background: linear-gradient(135deg, #a7eef3, #6ebfe7);
+  color: #065f46;
+}
+
+/* body.light-theme .habit{
+  background-color: white;
+} */
+/* ---------- BADGES SECTION ---------- */
+body.light-theme .badge-section {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  color: #1e293b;
+}
+
+body.light-theme .custom-badge {
+  background-color: #e0f2fe;
+  color: #1e3a8a;
+  border-radius: 30px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* ---------- BADGES LIGHT THEME (EXTENSION) ---------- */
+
+body.light-theme .card-body {
+  margin-top: -10px;
+  /* background-color: white !important; */
+  background-color: rgb(174, 225, 233);
+}
+body.light-theme .badge-section {
+  /* background-color: white !important; */
+  background-color: rgb(174, 225, 233) !important;
+}
+body.light-theme .card-title {
+  color: #1e293b !important; /* dark navy text */
+}
+
+/* Locked (unachieved) badge override */
+body.light-theme .locked-badge {
+  background-color: #e5e7eb !important; /* light gray */
+  color: #6b7280 !important; /* medium gray text */
+  filter: grayscale(100%);
+  opacity: 0.8;
+}
+
+/* Optional: smooth scaling on hover for badges */
+body.light-theme .custom-badge:hover {
+  transform: scale(1.05);
+  cursor: default;
+}
+
+/* ---------- ADD HABIT SECTION ---------- */
+body.light-theme .add-habit-section {
+  /* background-color: #ffffff; */
+  background-color: rgb(174, 225, 233);
+  /* color: black !important; */
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  padding: 20px;
+}
+
+/* ---------- COMMON CARD SHADOW ---------- */
+body.light-theme .card,
+body.light-theme .main-dashboard {
+  background-color: #ffffff;
+  color: #1e293b;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  border-radius: 10px;
+}
+
+/* ---------- THEME TOGGLE END ---------- */
